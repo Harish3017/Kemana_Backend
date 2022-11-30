@@ -11,7 +11,7 @@ const cartRoute = require('./routes/cartRoute');
 const orderRoute = require('./routes/orderRoute');
 const productRoute = require('./routes/productRoute');
 
-const apiURL = '/api/v1/';
+const apiURL = '/api/';
 
 app.use(cors());
 app.use(express.json());
@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === ENV_CONSTANTS.ENV_DEVELOPMENT) {
 
 //app routes
 app.use(apiURL + 'auth/',authRoute);
-app.use(apiURL + 'product/',productRoute);
+app.use(apiURL + 'products/',productRoute);
 app.use(apiURL + 'order/',orderRoute);
 app.use(apiURL + 'cart/',cartRoute);
 

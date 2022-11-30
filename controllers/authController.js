@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 //const passport = require("passport");
 const STATUS_CONSTANTS = require('../constants/status.constants');
 const USERS_CONSTANTS = require('../constants/users.constants');
+const AUTH_CONSTANTS = require('../constants/auth.constants');
 
 //Register
 exports.register = async(req,res)=>{
@@ -34,13 +35,13 @@ exports.register = async(req,res)=>{
 //Login
 exports.login = async(req,res)=>{
     try{
-        const user = await User.findOne({username:req.body.username});
+        const user = await User.findOne({email:req.body.email});
 
         if (!user) {
             throw new Error(AUTH_CONSTANTS.USER_DOES_NOT_EXISTS);
         }
         const hashedPassword = CryptoJS.AES.decrypt(user.password,process.env.PASS_SEC);
-        const originalPassword = hashedPassword.toString(CryotoJS.enc.Utf8);
+        const originalPassword = hashedPassword.toString(CryptoJS.enc.Utf8);
         
         const inputPassword = req.body.password;
 

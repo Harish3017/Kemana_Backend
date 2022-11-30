@@ -3,6 +3,10 @@ const router = express.Router();
 const verifyTokenController = require("../middlewares/verifyTokenController");
 const productController = require("../controllers/productController");
 
+router.route('/')
+    .post(
+        productController.addProduct
+    )
 router.route('/find/:id')
     .get(
         productController.getProduct
