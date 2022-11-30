@@ -1,9 +1,9 @@
 const User = require("../models/User");
 const CryotoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
-const cookieParser = require('cookie-parser');
-const session = require('express-session');
-const passport = require("passport");
+//const cookieParser = require('cookie-parser');
+//const session = require('express-session');
+//const passport = require("passport");
 const STATUS_CONSTANTS = require('../constants/status.constants');
 const USERS_CONSTANTS = require('../constants/users.constants');
 
