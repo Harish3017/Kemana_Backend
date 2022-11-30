@@ -1,5 +1,5 @@
 const User = require("../models/User");
-const CryotoJS = require("crypto-js");
+const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
 //const cookieParser = require('cookie-parser');
 //const session = require('express-session');
@@ -8,14 +8,15 @@ const STATUS_CONSTANTS = require('../constants/status.constants');
 const USERS_CONSTANTS = require('../constants/users.constants');
 
 //Register
-exports.Register = async(req,res)=>{
+exports.register = async(req,res)=>{
     try{
         const newUser = new User({
             username:req.body.username,
             email: req.body.email,
-            password: CryptoJS.AES.encrypt(req.body.password.env.PASS_SEC).toString(),
+            password: CryptoJS.AES.encrypt(req.body.password,process.env.PASS_SEC).toString(),
+
         });
-        const savedUser = await newUser.save();
+        const savedUser = await User.create(newUser);
         res.status(201).json({
             message:STATUS_CONSTANTS.SUCCESS,
             data:savedUser

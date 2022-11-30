@@ -20,6 +20,7 @@
     "cors": "^2.8.5",
     "crypto-js": "^4.1.1",
     "dotenv": "^10.0.0",
+    "email-validator": "^2.0.4",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "jsonwebtoken": "^8.5.1",
@@ -27,8 +28,7 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.15",
     "passport": "^0.6.0",
-    "stripe": "^8.191.0",
-    "email-validator": "^2.0.4"
+    "stripe": "^8.191.0"
   },
   "homepage": "https://github.com/Harish3017/Kemana_Backend#readme"
 }
